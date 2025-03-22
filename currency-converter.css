@@ -1,0 +1,21 @@
+button {
+    background-color: #71728fd4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  button:hover {
+    background-color: #71728f;
+  }
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #71728fd4;
+    border-radius: 7px;
+    font-size: 1rem;
+  }
+  input[type="number"]:focus {
+    border-color: #71728f;
+  }
