@@ -1,3 +1,12 @@
+* {
+  background-color: burlywood;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#resultInEUR, #resultInUSD {
+  font-size: 20px;
+  color: #1e7916;
+}
+
 button {
     background-color: #71728fd4;
     color: white;
@@ -18,4 +27,8 @@ input[type="number"] {
   }
   input[type="number"]:focus {
     border-color: #71728f;
+  }
+
+  .title {
+    color: #71728f; font-size: 80; opacity: 2;
   }
