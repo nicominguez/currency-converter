@@ -1,28 +1,23 @@
-let eurToUsd = 1.1;
 
+let eurToUsd = 0.0;
 async function fetchExchangeRate() {
-  try {
-    const response = await fetch('https://api.exchangerate-api.com/v4/latest/EUR'); 
-    if (!response.ok) {
-      throw new Error('Failed to fetch exchange rate');
-    }
-    const data = await response.json();
-    eurToUsd = data.rates.USD; 
-    console.log(`Updated EUR to USD rate: ${eurToUsd}`);
-  } catch (error) {
-    console.error('Error fetching exchange rate:', error);
+
+  const response = await fetch('https://api.exchangerate-api.com/v4/latest/EUR');
+  if (!response.ok) {
+    throw new Error('Failed to fetch exchange rate: ' + response.status);
   }
+  const data = await response.json()
+  eurToUsd = data.rates.USD
+  document.getElementById("curRate").textContent = `EUR to USD: ${eurToUsd}`
+  return eurToUsd
 }
 fetchExchangeRate();
 
-function convertEurToUsd() {
-  const eur = document.getElementById("eur").value;
-  const result = (eur * eurToUsd).toFixed(2);
-  document.getElementById("resultInUSD").textContent = `USD: ${result}`;
-}
+const eurEl = document.getElementById("eur")
+const usdEl = document.getElementById("usd")
+const resultInUSDEl = document.getElementById("resultInUSD")
+const resultInEUREl = document.getElementById("resultInEUR")
 
-function convertUsdToEur() {
-  const usd = document.getElementById("usd").value;
-  const result = (usd / eurToUsd).toFixed(2);
-  document.getElementById("resultInEUR").textContent = `EUR: ${result}`;
-}
+const eur2usd = () => resultInUSDEl.textContent = `USD: ${(eurEl.value * eurToUsd).toFixed(2)}`
+const usd2eur = () => resultInEUREl.textContent = `EUR: ${(usdEl.value / eurToUsd).toFixed(2)}`
+

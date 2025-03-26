@@ -1,26 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <style>
-            * {
-                background-color: burlywood
-            }
-            #resultInEUR, #resultInUSD {
-                font-size: 20px;
-                color: #1e7916;
-            }
-        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Currency Converter</title>
         <link rel="stylesheet" href="currency-converter.css"></link>
-        <script src="currency-converter.js" defer></script>
     </head>
     <body>
-        <h1 style="color: #71728f; font-size: 80; opacity: 2;">Currency Converter</h1>
+        <h1 class="title">Currency Converter</h1>
         
-        <input type="number" id="eur" placeholder="Enter EUR"></input>
-        <button onclick="convertEurToUsd()">Convert to USD</button>
+        <div>Current Rate <span id="curRate">..loading</span></div>
+        
+        <input type="number" id="eur" placeholder="Enter EUR" onkeyup="eur2usd()"></input>
         <p id="resultInUSD"></p>
-
-        <input type="number" id="usd" placeholder="Enter USD"></input>
-        <button onclick="convertUsdToEur()">Convert to EUR</button>
+        
+        <input type="number" id="usd" placeholder="Enter USD" onkeyup="usd2eur()"></input>
         <p id="resultInEUR"></p>
     </body>
+    <script src="currency-converter.js" defer></script>
 </html>
